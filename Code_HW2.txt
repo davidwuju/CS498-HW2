@@ -1,0 +1,8 @@
+Latency Measurement:
+I wrote a Node.js script (measure.js) that sends 10 POST requests to /register and 10 GET requests to /list for each VM (US and EU). For each request, it measures latency using Date.now() before and after fetch(), then reports the average latency in milliseconds.
+
+Eventual Consistency Experiment:
+The script runs 100 iterations where it:
+1) Sends a POST /register to the US VM with a unique username.
+2) Immediately sends a GET /list to the EU VM.
+It counts a “miss” if the new username is not present in the EU response.
