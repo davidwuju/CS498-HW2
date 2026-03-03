@@ -1,0 +1,17 @@
+Average latency measurements (10 trials each):
+
+us-central1 (34.173.250.176):
+- /register average: 171 ms
+- /list average: 138 ms
+
+europe-west1 (34.22.204.210):
+- /register average: 345 ms
+- /list average: 141 ms
+
+Eventual consistency experiment (100 iterations):
+- misses: 0 / 100
+
+Latency differences are mainly due to geographic distance and network routing between regions. 
+Write operations (/register) are generally slower than read operations because they involve updating the database. 
+In this experiment, no misses were observed, meaning replication between regions was fast enough that the EU server immediately saw updates from the US server. 
+This still reflects eventual consistency, but the delay was not observable during our tests.
